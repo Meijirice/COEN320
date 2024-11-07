@@ -20,14 +20,15 @@ int main()
     while (true)
     {
         int rcvid;
-        char aircrafts;
-        rcvid = MsgReceive(attach->chid, &aircrafts, sizeof(aircrafts), NULL); // Use &msg to pass the address
+        Aircraft aircraft;
+        rcvid = MsgReceive(attach->chid, &aircraft, sizeof(aircraft), NULL); // Use &msg to pass the address
         if (rcvid == -1)
         {
             perror("No Msg Received");
             continue;
         }
-        std::cout << "Received message: " << aircrafts << std::endl;
+        std::cout << "Received message: " << std::endl;
+        aircraft.printStatus();
 
         char reply('b');
 
