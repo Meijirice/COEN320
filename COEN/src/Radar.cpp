@@ -45,15 +45,14 @@ void Radar::simulation() {
 			}
 			for (Aircraft *aircraft : aircrafts) {
 				int id;
-				float x, y, z;
-				float speedX, speedY, speedZ;
-				bool isActive;
-				aircraft->radarResponse(id, x, y, z, speedX, speedY, speedZ, isActive);
-				int locationX = x / 10000;
-				int locationY = y / 10000;;
+				float x, y, z, speedX, speedY, speedZ;
+				bool active;
+				aircraft->radarResponse(id, x, y, z, speedX, speedY, speedZ, active);
+				int locationX, locationY;
 
-
-				if (isActive) {
+				locationX = x / 10000;
+				locationY = y / 10000;
+				if (active) {
 					if (locationX <= 10 && locationY <= 10 && locationX >= 0 && locationY >= 0) {
 						if(locationX == 10 && locationY == 8){
 							cout << id;
@@ -62,10 +61,12 @@ void Radar::simulation() {
 					}
 				}
 
+			}
+
 		}
 
 		count++;
 		timer.waitTimer();
 	} //end_while
-	}
+
 }
