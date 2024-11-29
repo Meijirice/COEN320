@@ -42,22 +42,22 @@ char* fileWriter:: select_input () {
 
 	switch(option) {
 	case 1:
-		x = "input_low.txt";
+		x = "/data/home/input_low.txt";
 		path = new char[x.length() + 1];
 		copy(x.begin(), x.end(), path);
 		break;
 	case 2:
-		x = "input_medium.txt";
+		x = "/data/home/input_medium.txt";
 		path = new char[x.length() + 1];
 		copy(x.begin(), x.end(), path);
 		break;
 	case 3:
-		x = "input_high.txt";
+		x = "/data/home/input_high.txt";
 		path = new char[x.length() + 1];
 		path = copy(x.begin(), x.end(), path);
 		break;
 	case 4:
-		x = "input_overload.txt";
+		x = "/data/home/input_overload.txt";
 		path = new char[x.length() + 1];
 		copy(x.begin(), x.end(), path);
 		break;
@@ -168,7 +168,7 @@ void fileWriter::write_low() {
 	int size_written;
 
 	// To find the file navigate in the vmware
-	fd = creat("input_low.txt", S_IRUSR | S_IWUSR | S_IXUSR);
+	fd = creat("/data/home/input_low.txt", S_IRUSR | S_IWUSR | S_IXUSR);
 	std::string info = "Time 5\n";
 	info.append("AircraftID 1\n");
 	info.append("X 1000\n");
@@ -226,7 +226,7 @@ void fileWriter::write_medium() {
 	int fd;
 	int size_written;
 
-	fd = creat("input_medium.txt", S_IRUSR | S_IWUSR | S_IXUSR);
+	fd = creat("/data/home/input_medium.txt", S_IRUSR | S_IWUSR | S_IXUSR);
 	std::string info = "Time 5\n";
 	info.append("AircraftID 1\n");
 	info.append("X 1000\n");
@@ -330,7 +330,7 @@ void fileWriter::write_high() {
 	int size_written;
 
 	// To find the file navigate in the vmware
-	fd = creat("input_high.txt", S_IRUSR | S_IWUSR | S_IXUSR);
+	fd = creat("/data/home/input_high.txt", S_IRUSR | S_IWUSR | S_IXUSR);
 
 	std::string info = "Time 5\n";
 	info.append("AircraftID 1\n");
@@ -435,7 +435,7 @@ void fileWriter::write_overload() {
 	int fd;
 	int size_written;
 
-	fd = creat("input_overload.txt", S_IRUSR | S_IWUSR | S_IXUSR);
+	fd = creat("/data/home/input_overload.txt", S_IRUSR | S_IWUSR | S_IXUSR);
 	std::string info = "Time 5\n";
 	info.append("AircraftID 1\n");
 	info.append("X 1000\n");
